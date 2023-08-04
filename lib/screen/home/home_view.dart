@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
+import 'package:gunkul/main.dart';
 import 'package:gunkul/screen/login/login_view.dart';
 import 'package:gunkul/screen/products/products_view.dart';
 import 'package:gunkul/secure_store.dart';
@@ -44,6 +45,18 @@ class HomeView extends StatelessWidget {
                         Get.to(() => ProductsView());
                       },
                       child: const Text('Products'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        if (Get.isDarkMode) {
+                          Get.changeTheme(ThemeData.light());
+                          SecureStore().setThemeSecureStore(ThemeContent.light.toString());
+                        } else {
+                          Get.changeTheme(ThemeData.dark());
+                          SecureStore().setThemeSecureStore(ThemeContent.dark.toString());
+                        }
+                      },
+                      child: const Text('Theme'),
                     ),
                   ],
                 ),
