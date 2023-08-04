@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:gunkul/screen/login/login.dart';
+import 'package:gunkul/screen/login/login_view.dart';
+import 'package:gunkul/screen/products/products_view.dart';
 import 'package:gunkul/secure_store.dart';
 
-class Home extends StatelessWidget {
-  Home({Key? key}) : super(key: key);
+class HomeView extends StatelessWidget {
+  HomeView({Key? key}) : super(key: key);
 
+  final loginController = Get.put(ProductsController());
   final LoginController userController = Get.find<LoginController>();
 
   @override
@@ -39,7 +41,7 @@ class Home extends StatelessWidget {
                     Text('Email: ${userController.user.value!.email}'),
                     ElevatedButton(
                       onPressed: () {
-                        // Get.to(() => ProductScreen());
+                        Get.to(() => ProductsView());
                       },
                       child: const Text('Products'),
                     ),

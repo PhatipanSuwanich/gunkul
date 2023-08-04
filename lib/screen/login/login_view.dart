@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gunkul/model/user_model.dart';
-import 'package:gunkul/screen/home/home.dart';
+import 'package:gunkul/screen/home/home_view.dart';
 import 'package:gunkul/secure_store.dart';
 import 'package:gunkul/service/base_service.dart';
 
@@ -17,7 +17,7 @@ class LoginController extends GetxController {
       callAPIUser();
     });
 
-    Get.offAll(() => Home());
+    Get.offAll(() => HomeView());
   }
 
   @override
